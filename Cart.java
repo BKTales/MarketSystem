@@ -19,8 +19,14 @@ public class Cart {
         itemsHashMap.put(scan.nextInt(), scan.nextFloat());
     }
     private void addItemToCart(){
-        System.out.println("Input itemId and cartId");
-        itemsHashMap.put(scan.nextInt(), 0f);
-        //scan.nextInt() = cartId;
+        System.out.println("Input itemId, price and cartId");
+        itemsHashMap.put(scan.nextInt(), scan.nextFloat());
+        cartId = scan.nextInt();
+    }
+    public float totalCost(){
+        for (float value : itemsHashMap.values()) {
+            totalCost += value;
+        }
+        return totalCost;
     }
 }
