@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Cart{
     private int id;
-    private List<Item> items;
+    public List<Item> items;
     private float totalCost;
 
     public Cart(int id){

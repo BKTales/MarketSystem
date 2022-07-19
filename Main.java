@@ -10,16 +10,16 @@ public class Main {
         int opt02;
         float opt03;
 
-        System.out.println("Select an option");
-        System.out.println("a) Create cart");
-        System.out.println("b) Create item");
-        System.out.println("c) Add item to cart");
-        System.out.println("d) Pay");
-        System.out.println("e) Exit");
-        System.out.println("\n");
-        opt01 = scan.next().charAt(0);
-
         do {
+            System.out.println("Select an option");
+            System.out.println("a) Create cart");
+            System.out.println("b) Create item");
+            System.out.println("c) Add item to cart");
+            System.out.println("d) Pay");
+            System.out.println("e) Exit");
+            System.out.println("\n");
+            opt01 = scan.next().charAt(0);
+
             switch (opt01) {
                 case 'a':
                     System.out.println("************************************************************");
@@ -42,7 +42,6 @@ public class Main {
                     System.out.println("************************************************************");
                     opt02 = scan.nextInt();
                     int opt04 = scan.nextInt();
-                    float opt05 = scan.nextFloat();
                     Cart cart = new Cart(opt02);
                     cart.addItem();
 
@@ -61,6 +60,6 @@ public class Main {
                     break;
 
             }
-        }while (true);
+        }while(opt01 != 'e');
     }
 }
