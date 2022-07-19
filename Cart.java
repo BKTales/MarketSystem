@@ -5,14 +5,12 @@ import java.util.Scanner;
 public class Cart extends CartStock{
 
     Scanner scan = new Scanner(System.in);
-    public int cartId;
+    public int thisCartId;
     public Map<Integer, Float> itemsHashMap;
     public float totalCost;
-
-    public Cart(int cartId, Map itemsHashMap, float totalCost) {
-        this.cartId = cartId;
+    public Cart(int thisCartId, Map itemsHashMap) {  //Cart Constructor
+        this.thisCartId = thisCartId;
         this.itemsHashMap = itemsHashMap;
-        this.totalCost = totalCost;
     }
 
     public void createItem(){
@@ -21,8 +19,7 @@ public class Cart extends CartStock{
     }
     public void addItemToCart(){
         System.out.println("Input itemId, price and cartId");
-        itemsHashMap.put(scan.nextInt(), scan.nextFloat());
-        cartId = scan.nextInt();
+        //cartId = scan.nextInt();
     }
     public float totalCost(){
         for (float value : itemsHashMap.values()) {
@@ -47,23 +44,31 @@ public class Cart extends CartStock{
 
             switch (option){
                 case 'a':
-                    createItem();
+                    createItem(); //Working 100%
+                    System.out.println(itemsHashMap);
                     break;
                 case 'b':
-                    addCart(cartId, itemsHashMap, totalCost);
+                    System.out.println("Input the cartId: "); //To fix
+                    thisCartId = scan.nextInt();
+                    itemsHashMap.put(0, 0f);
+                    addCart(thisCartId, itemsHashMap);;
                     break;
                 case 'c':
-                    addItemToCart();
+                    addItemToCart(); //Not tested
                     break;
                 case 'd':
-                    totalCost();
+                    totalCost(); //Prob not working
                     break;
                 case 'e':
-                    System.exit(1);
+                    System.exit(0); //Working
+                case 't':
+                    System.out.println(cartsArray);
+                    break;
                 default:
-                    System.out.println("Please choose a valid command");
+                    System.out.println("Please choose a valid command"); //Working
                     break;
             }
         }while (option != 'e');
+        System.exit(0); //Working
     }
 }

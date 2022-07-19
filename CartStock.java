@@ -1,17 +1,16 @@
 import java.util.Map;
 
 public class CartStock {
-    private Cart[] carts;
+    public Cart[] cartsArray;
 
     public CartStock() {
-        this.carts = new Cart[100];
+        this.cartsArray = new Cart[50];
     }
-
-    public void addCart(int cartId, Map itemsHashMap, float totalCost) {
-        for(int i = 0; i < carts.length; i++){
-            if(carts[i] == null){
-                carts[i] = new Cart(cartId, itemsHashMap, totalCost);
-                break;
+    public void addCart(int thisCartId, Map itemsHashMap) {
+        for (int i = 0; i < cartsArray.length; i++)
+        {
+            if(cartsArray[i] == null) {
+                cartsArray[thisCartId] = new Cart(thisCartId, itemsHashMap);
             }
         }
     }
