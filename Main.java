@@ -7,8 +7,9 @@ public class Main {
         Supermarket supermarket = new Supermarket();
         Scanner scan = new Scanner(System.in);
         char opt01 = ' ';
-        int opt02;
-        float opt03;
+        int optCartId;
+        int optItemId;
+        float optItemPrice;
 
         do {
             System.out.println("Select an option");
@@ -25,33 +26,34 @@ public class Main {
                     System.out.println("************************************************************");
                     System.out.println("You are creating a cart, please insert your cart id.");
                     System.out.println("************************************************************");
-                    opt02 = scan.nextInt();
-                    supermarket.cart(opt02);
+                    optCartId = scan.nextInt();
+                    supermarket.cart(optCartId);
                     break;
                 case 'b':
                     System.out.println("************************************************************");
                     System.out.println("You are creating an item, please insert your item id and your item price.");
                     System.out.println("************************************************************");
-                    opt02 = scan.nextInt();
-                    opt03 = scan.nextFloat();
-                    supermarket.item(opt02, opt03);
+                    optItemId = scan.nextInt();
+                    optItemPrice = scan.nextFloat();
+                    supermarket.item(optItemId, optItemPrice);
                     break;
                 case 'c':
                     System.out.println("************************************************************");
-                    System.out.println("You are adding a item to a cart, please type the cart id, item id and price.");
+                    System.out.println("You are adding a item to a cart, please type the cart, item id and the price.");
                     System.out.println("************************************************************");
-                    opt02 = scan.nextInt();
-                    int opt04 = scan.nextInt();
-                    Cart cart = new Cart(opt02);
-                    cart.addItem();
-
+                    optCartId = scan.nextInt();
+                    optItemId = scan.nextInt();
+                    optItemPrice = scan.nextFloat();
+                    Item item01 = new Item(optItemId, optItemPrice);
+                    Cart cart = new Cart(optCartId);
+                    cart.addItem(item01);
                     break;
                 case 'd':
                     System.out.println("************************************************************");
                     System.out.println("Please input you cart id to pay.");
                     System.out.println("************************************************************");
-                    opt02 = scan.nextInt();
-                    supermarket.pay(opt02);
+                    optCartId = scan.nextInt();
+                    supermarket.pay(optCartId);
                     break;
                 case 'e':
                     System.exit(0);

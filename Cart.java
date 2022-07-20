@@ -15,8 +15,16 @@ public class Cart{
         totalCost += cost;
     }
     public void addItem(Item item){
-        items.add(item);
-        updateTotalCost(item.getCost());
+        for (Item item1: items)
+        {
+            if(id == item.getId()){
+                items.add(item);
+                updateTotalCost(item.getCost());
+            } else if(id != item.getId()){
+                System.out.println("Please select a valid item.");
+            }
+        }
+
     }
     public void resetCost(){
         totalCost = 0;
