@@ -17,6 +17,13 @@ public class Supermarket {
     public void cart(int id){
         carts.add(new Cart(id));
     }
+    public void add(int cartId, int itemId){
+        for (Cart c: carts){
+            if (c.getId() == cartId){
+                c.addItem(items.get(itemId));
+            }
+        }
+    }
     public void pay(int id){
         for(Cart c: carts){
             if(id == c.getId()){
@@ -27,9 +34,3 @@ public class Supermarket {
         }
     }
 }
-
-
-/*
-cart.resetCost() -> Method
-resetCost(cart) -> Function
- */

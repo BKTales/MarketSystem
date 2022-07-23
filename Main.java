@@ -1,15 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Supermarket supermarket = new Supermarket();
         Scanner scan = new Scanner(System.in);
         char opt01 = ' ';
-        int optCartId;
-        int optItemId;
-        float optItemPrice;
 
         do {
             System.out.println("Select an option");
@@ -23,37 +18,16 @@ public class Main {
 
             switch (opt01) {
                 case 'a':
-                    System.out.println("************************************************************");
-                    System.out.println("You are creating a cart, please insert your cart id.");
-                    System.out.println("************************************************************");
-                    optCartId = scan.nextInt();
-                    supermarket.cart(optCartId);
+                    cart(scan, supermarket);
                     break;
                 case 'b':
-                    System.out.println("************************************************************");
-                    System.out.println("You are creating an item, please insert your item id and your item price.");
-                    System.out.println("************************************************************");
-                    optItemId = scan.nextInt();
-                    optItemPrice = scan.nextFloat();
-                    supermarket.item(optItemId, optItemPrice);
+                    item(scan, supermarket);
                     break;
                 case 'c':
-                    System.out.println("************************************************************");
-                    System.out.println("You are adding a item to a cart, please type the cart, item id and the price.");
-                    System.out.println("************************************************************");
-                    optCartId = scan.nextInt();
-                    optItemId = scan.nextInt();
-                    optItemPrice = scan.nextFloat();
-                    Item item01 = new Item(optItemId, optItemPrice);
-                    Cart cart = new Cart(optCartId);
-                    cart.addItem(item01);
+                    add(scan, supermarket);
                     break;
                 case 'd':
-                    System.out.println("************************************************************");
-                    System.out.println("Please input you cart id to pay.");
-                    System.out.println("************************************************************");
-                    optCartId = scan.nextInt();
-                    supermarket.pay(optCartId);
+                    pay(scan, supermarket);
                     break;
                 case 'e':
                     System.exit(0);
@@ -63,5 +37,24 @@ public class Main {
 
             }
         }while(opt01 != 'e');
+    }
+
+    private static void cart(Scanner scan, Supermarket supermarket){
+        int cartId = scan.nextInt();
+        supermarket.cart(cartId);
+    }
+    private static void item(Scanner scan, Supermarket supermarket){
+        int itemId = scan.nextInt();
+        float itemPrice = scan.nextFloat();
+        supermarket.item(itemId, itemPrice);
+    }
+    private static void add(Scanner scan, Supermarket supermarket){
+        int cartId = scan.nextInt();
+        int itemId = scan.nextInt();
+        supermarket.add(cartId, itemId);
+    }
+    private static void pay(Scanner scan, Supermarket supermarket){
+        int cartId = scan.nextInt();
+        supermarket.pay(cartId);
     }
 }
