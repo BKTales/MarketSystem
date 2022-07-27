@@ -11,6 +11,6 @@ Languages used:
 
 >100%  Java
 
-Why did I start this project?
+What did I learn over this project?
 
->To sharp my Java abilities
+>HashMaps, LinkedLists and Interfaces
