@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Supermarket supermarket = new Supermarket();
+        SupermarketClass supermarket = new SupermarketClass();
         Scanner scan = new Scanner(System.in);
         char opt01;
 
@@ -38,22 +38,27 @@ public class Main {
         }while(opt01 != 'e');
     }
 
-    private static void cart(Scanner scan, Supermarket supermarket){
+    private static void cart(Scanner scan, SupermarketClass supermarket){
         int cartId = scan.nextInt();
         supermarket.cart(cartId);
     }
-    private static void item(Scanner scan, Supermarket supermarket){
+    private static void item(Scanner scan, SupermarketClass supermarket){
         int itemId = scan.nextInt();
         float itemPrice = scan.nextFloat();
         supermarket.item(itemId, itemPrice);
     }
-    private static void add(Scanner scan, Supermarket supermarket){
+    private static void add(Scanner scan, SupermarketClass supermarket){
         int cartId = scan.nextInt();
         int itemId = scan.nextInt();
         supermarket.add(cartId, itemId);
     }
-    private static void pay(Scanner scan, Supermarket supermarket){
+    private static void pay(Scanner scan, SupermarketClass supermarket){
         int cartId = scan.nextInt();
         supermarket.pay(cartId);
     }
 }
+
+
+/*
+INTERFACE -> Blueprint de uma classe.
+ */
