@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Supermarket supermarket = new Supermarket();
         Scanner scan = new Scanner(System.in);
-        char opt01 = ' ';
+        char opt01;
 
         do {
             System.out.println("Select an option");
@@ -30,7 +30,6 @@ public class Main {
                     pay(scan, supermarket);
                     break;
                 case 'e':
-                    System.exit(0);
                     break;
                 default:
                     break;
